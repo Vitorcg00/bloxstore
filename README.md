@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+gdf<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -75,3 +75,85 @@
 <script src="script.js"></script>
 </body>
 </html>
+html, body {
+margin: 0; padding: 0; background: #000; color: #eaeaea;
+font-family: 'Segoe UI', sans-serif;
+}
+
+
+.layout {
+display: flex;
+}
+
+
+.menu {
+width: 220px;
+background: #050505;
+padding: 20px;
+box-shadow: 0 0 20px #0077ff;
+}
+
+
+.menu h2 { color: #00aaff; }
+
+
+.menu button {
+width: 100%; margin: 6px 0; padding: 10px;
+background: #001f3f; color: #00aaff;
+border: none; border-radius: 6px; cursor: pointer;
+}
+
+
+.menu button:hover { background: #0077ff; color: black; }
+
+
+main { flex: 1; }
+
+
+header {
+text-align: center; padding: 25px;
+box-shadow: 0 0 20px #0077ff;
+}
+
+
+.produtos {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 20px; padding: 30px;
+}
+
+
+.card {
+background: linear-gradient(180deg, #050505, #0a1a2f);
+border-radius: 16px; padding: 20px; text-align: center;
+box-shadow: 0 0 15px rgba(0,119,255,.4);
+}
+
+
+.icone { font-size: 40px; margin-bottom: 8px; }
+
+
+span { display: block; margin: 8px 0; font-size: 18px; color: #00aaff; }
+
+
+button {
+background: linear-gradient(90deg, #0077ff, #00aaff);
+border: none; padding: 8px; width: 100%; border-radius: 8px;
+font-weight: bold; cursor: pointer;
+}
+function comprar(produto) {
+const msg = `Olá! Quero comprar: ${produto}`;
+window.location.href = "https://wa.me/5599999999999?text=" + encodeURIComponent(msg);
+}
+
+
+function filtrar(categoria) {
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
+if (categoria === 'tudo' || card.classList.contains(categoria)) {
+card.style.display = 'block';
+} else {
+card.style.display = 'none';
+}
+});
+}
